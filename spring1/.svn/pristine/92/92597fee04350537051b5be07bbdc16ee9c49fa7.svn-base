@@ -1,0 +1,48 @@
+import java.sql.SQLException;
+
+import org.junit.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.GenericXmlApplicationContext;
+
+
+public class MainTest {
+	
+	
+	@Test
+	public void addAndGet() {
+	}
+
+	/**
+	 * @param args
+	 * @throws SQLException 
+	 * @throws ClassNotFoundException 
+	 */
+	public static void main(String[] args) throws ClassNotFoundException, SQLException {
+		// TODO Auto-generated method stub
+		
+		
+		
+		ApplicationContext context=new GenericXmlApplicationContext("applicationContext.xml");
+		UserDao userDao = context.getBean("userDao",UserDao.class);
+		
+//		UserDao userDao = new DaoFactory().userDao();
+		
+		User user = new User();
+		user.setId("1");
+		user.setName("hkk");
+		
+		userDao.add(user);
+		
+		System.out.println(user.getId());
+		System.out.println(user.getName());
+		
+		
+		System.out.println();
+		
+		
+		
+		
+		
+	}
+
+}
